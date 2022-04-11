@@ -86,7 +86,7 @@ const options = {
 // com a function abaixo eu converto xml em json
 function test(e) {
     e.preventDefault()
-    fetch(`https://tides.p.rapidapi.com/tides?longitude=${longitude}&latitude=${latitude}&radius=50&interval=60&duration=10080`, options)
+    fetch(`https://tides.p.rapidapi.com/tides?longitude=${longitude}&latitude=${latitude}&radius=200&interval=60&duration=10080`, options)
         .then(response => response.json())
         .then(response => 
             {setResultData(response.extremes)
@@ -94,10 +94,29 @@ function test(e) {
         .catch(err => console.error(err));
 }
 
+function resultsToDisplay(data) {
+    if (data===[]){
+        return null
+      } else if (data===undefined){
+        alert('No results found!')
+      }
+    return data.map(date => {
+        return(
+            <tr>
+            <td>{resultData[0].datetime}</td>
+            <td>{resultData[0].height}</td>
+            <td>{resultData[0].state}</td>
+          </tr>
+
+        )
+    })
+}
+
+
 
 return (
     <div>
-    //se um form para todos os inputs
+    {/* //se um form para todos os inputs */}
     <form >
         {/* <input
                 type='text'
@@ -137,11 +156,7 @@ return (
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>January</td>
-      <td>$100</td>
-      <td>$100</td>
-    </tr>
+            {resultsToDisplay(resultData)}
   </tbody>
 </table>
 </div>
