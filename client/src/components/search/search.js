@@ -89,8 +89,9 @@ const options = {
 
 
 // com a function abaixo eu converto xml em json
-function test(e) {
+function searchResults(e) {
     e.preventDefault()
+    makeCoordinates()
     fetch(`https://tides.p.rapidapi.com/tides?longitude=${longitude}&latitude=${latitude}&radius=800&interval=60&duration=${numbersOfDays}`, options)
         .then(response => response.json())
         .then(response => 
@@ -98,6 +99,20 @@ function test(e) {
             console.log(response)})
         .catch(err => console.error(err));
 }
+
+// gera resultados aleatorios para as mares de algumas cidades que procuramos
+function makeCoordinates(){
+    //latitude 
+    //ceiling rounds up it to role number. round makes it more accurate
+    let val = Math.round(Math.random()*10) //a number between 0 and 10
+    let lat = shortenDecimals(Math.random(60)*100,2)
+    setLatitude(val>5?-lat:lat)
+    let val2 = Math.round(Math.random()*10)
+    let lon = shortenDecimals(Math.random(100)*100,2)
+    setLongitude(val2>5?-lon:lon)
+
+}
+
 
 function shortenDecimals(num, digits) {
     let numS = num.toString(),
@@ -129,18 +144,16 @@ function resultsToDisplay(data) {
     })
 }}
 
-
-
 return (
     <div>
     {/* //se um form para todos os inputs */}
     <form >
-        {/* <input
+         <input
                 type='text'
                 onChange={handleSearchChange}
-            /> */}
+            /> 
        
-        <select onChange={handleLocationChange} id="city" name="city">
+        {/* <select onChange={handleLocationChange} id="city" name="city">
             <option value="Bay of Fundy">Bay of Fundy, Canada</option>
             <option value="Ungava Bay">Ungava, Quebec</option>
             <option value="Bristol Channel">Bristol Channel, Uk</option>
@@ -148,7 +161,7 @@ return (
             <option value="Rio Gallegos">Rio Gallegos, Argentina</option>
             <option value="Mont Saint-Michel">Monte Saint-Michel, France</option>
             <option value="Derby">Derby, Australia</option>
-        </select>
+        </select> */}
         <label>Days</label>
         <select onChange={handleNumbersOfDaysChange} id="days" name="days">
             <option value="1440">1</option>
@@ -161,7 +174,7 @@ return (
         </select>
 
 
-        <button onClick={test}>
+        <button onClick={searchResults}>
             Submit
         </button>
     </form>
