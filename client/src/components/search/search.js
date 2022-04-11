@@ -3,10 +3,12 @@ import React, { useState, useEffect } from 'react';
 //import XMLParser from 'react-xml-parser';
 
 function Search({ searchUrl }) {
-    //faco um const statement pq quero fazer aparecer latitude e longitude no meu dropdown. Depois tenho que fazer um if statement
+    //faco um const statement variable pq quero fazer aparecer latitude e longitude no meu dropdown. Depois tenho que fazer um if statement
+    //allows to update values
     const [latitude, setLatitude] = useState('44.778')
     const [longitude, setLongitude] = useState('66.3096')
     const [location, setLocation] = useState('Bay of Fundy')
+    const [resultData, setResultData] = useState([])
 
     const [search, setSearch] = useState('')
     //para fazer o calendario aparecer, depois colocar no input no retorno, nao esquecer de colocaro tipo de retorno
@@ -86,12 +88,15 @@ function test(e) {
     e.preventDefault()
     fetch(`https://tides.p.rapidapi.com/tides?longitude=${longitude}&latitude=${latitude}&radius=50&interval=60&duration=10080`, options)
         .then(response => response.json())
-        .then(response => console.log(response))
+        .then(response => 
+            {setResultData(response.extremes)
+            console.log(response)})
         .catch(err => console.error(err));
 }
 
 
 return (
+    <div>
     //se um form para todos os inputs
     <form >
         {/* <input
@@ -123,6 +128,25 @@ return (
             Submit
         </button>
     </form>
+    <table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Height</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>January</td>
+      <td>$100</td>
+      <td>$100</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 )
 }
 
