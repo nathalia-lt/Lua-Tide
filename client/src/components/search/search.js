@@ -91,7 +91,7 @@ const options = {
 // com a function abaixo eu converto xml em json
 function test(e) {
     e.preventDefault()
-    fetch(`https://tides.p.rapidapi.com/tides?longitude=${longitude}&latitude=${latitude}&radius=200&interval=60&duration=${numbersOfDays}`, options)
+    fetch(`https://tides.p.rapidapi.com/tides?longitude=${longitude}&latitude=${latitude}&radius=800&interval=60&duration=${numbersOfDays}`, options)
         .then(response => response.json())
         .then(response => 
             {setResultData(response.extremes)
@@ -99,23 +99,35 @@ function test(e) {
         .catch(err => console.error(err));
 }
 
+function shortenDecimals(num, digits) {
+    let numS = num.toString(),
+        decPos = numS.indexOf('.'),
+        substrLength = decPos == -1 ? numS.length : 1 + decPos + digits,
+        trimmedResult = numS.substr(0, substrLength),
+        finalResult = isNaN(trimmedResult) ? 0 : trimmedResult;
+    return parseFloat(finalResult);
+}
+
 function resultsToDisplay(data) {
     if (data===[]){
         return null
       } else if (data===undefined){
-        alert('No results found!')
+        
       }
+      else{
     return data.map(date => {
+        let dateTime = date.datetime.split(':')[0].split('T')
+        let dateTime2 = dateTime[0]+' ' + dateTime[1] + ':00'
+        
         return(
             <tr>
-            <td>{resultData[0].datetime}</td>
-            <td>{resultData[0].height}</td>
-            <td>{resultData[0].state}</td>
+            <td>{dateTime2}</td>
+            <td>{shortenDecimals(date.height, 2)}</td>
+            <td>{date.state}</td>
           </tr>
-
         )
     })
-}
+}}
 
 
 
@@ -134,7 +146,7 @@ return (
             <option value="Bristol Channel">Bristol Channel, Uk</option>
             <option value="Cook Inlet">Cook Inlet, Alaska</option>
             <option value="Rio Gallegos">Rio Gallegos, Argentina</option>
-            <option value="Mont Saint-Michel">Monte Saint-Michel, Franca</option>
+            <option value="Mont Saint-Michel">Monte Saint-Michel, France</option>
             <option value="Derby">Derby, Australia</option>
         </select>
         <label>Days</label>
@@ -157,7 +169,7 @@ return (
   <thead>
     <tr>
       <th>Date</th>
-      <th>Height</th>
+      <th>Height (Measured in mean sea level)</th>
       <th>Status</th>
     </tr>
   </thead>
