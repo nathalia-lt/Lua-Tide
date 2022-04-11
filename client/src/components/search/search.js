@@ -9,6 +9,7 @@ function Search({ searchUrl }) {
     const [longitude, setLongitude] = useState('66.3096')
     const [location, setLocation] = useState('Bay of Fundy')
     const [resultData, setResultData] = useState([])
+    const [numbersOfDays, setNumbersOfDays] = useState('1440')
 
     const [search, setSearch] = useState('')
     //para fazer o calendario aparecer, depois colocar no input no retorno, nao esquecer de colocaro tipo de retorno
@@ -17,6 +18,10 @@ function Search({ searchUrl }) {
 
     function handleSearchChange(e) {
         setSearch(e.target.value)
+    }
+
+    function handleNumbersOfDaysChange(e){
+        setNumbersOfDays(e.target.value)
     }
 
     function handleSearchSubmit(e) {
@@ -86,7 +91,7 @@ const options = {
 // com a function abaixo eu converto xml em json
 function test(e) {
     e.preventDefault()
-    fetch(`https://tides.p.rapidapi.com/tides?longitude=${longitude}&latitude=${latitude}&radius=200&interval=60&duration=10080`, options)
+    fetch(`https://tides.p.rapidapi.com/tides?longitude=${longitude}&latitude=${latitude}&radius=200&interval=60&duration=${numbersOfDays}`, options)
         .then(response => response.json())
         .then(response => 
             {setResultData(response.extremes)
@@ -122,16 +127,7 @@ return (
                 type='text'
                 onChange={handleSearchChange}
             /> */}
-        <input
-            type='date'
-            // value=
-            onChange={handleStartDateChange}
-        />
-        <input
-            type='date'
-            // value=
-            onChange={handleEndDateChange}
-        />
+       
         <select onChange={handleLocationChange} id="city" name="city">
             <option value="Bay of Fundy">Bay of Fundy, Canada</option>
             <option value="Ungava Bay">Ungava, Quebec</option>
@@ -140,6 +136,16 @@ return (
             <option value="Rio Gallegos">Rio Gallegos, Argentina</option>
             <option value="Mont Saint-Michel">Monte Saint-Michel, Franca</option>
             <option value="Derby">Derby, Australia</option>
+        </select>
+        <label>Days</label>
+        <select onChange={handleNumbersOfDaysChange} id="days" name="days">
+            <option value="1440">1</option>
+            <option value="2880">2</option>
+            <option value="4320">3</option>
+            <option value="5760">4</option>
+            <option value="7200">5</option>
+            <option value="8640">6</option>
+            <option value="10080">7</option>
         </select>
 
 
