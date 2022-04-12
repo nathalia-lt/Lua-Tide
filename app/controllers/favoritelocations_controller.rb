@@ -4,7 +4,7 @@ class FavoritelocationsController < ApplicationController
             user = find_user
             favoritelocations = user.favoritelocations
         else
-            favoritelocations = favoritelocations.all
+            favoritelocations = Favoritelocation.all
         end
             render json: favoritelocations, include: :user, status: :ok
     end
@@ -18,7 +18,7 @@ class FavoritelocationsController < ApplicationController
     def create
         user = find_user
         favoritelocations = user.favoritelocations.create!(favoritelocations_params)
-        render json: favoritelocations, status: :created
+        render json: user, status: :created
     end
 
     def destroy
@@ -30,13 +30,13 @@ class FavoritelocationsController < ApplicationController
     def update
         favoritelocations = find_favoritelocations
         favoritelocations.update!(pet_params)
-        render json: favoriteslocations
+        render json: favoritelocations
     end
 
     private
     
     def favoritelocations_params
-        params.permit(:id, :latitude, :longitude :city :user_id)
+        params.permit(:id, :latitude, :longitude, :city, :user_id)
     end
 
     def find_user
@@ -45,7 +45,7 @@ class FavoritelocationsController < ApplicationController
 
 
     def find_favoritelocations
-        favoritelocations.find(params[:id])
+        Favoritelocation.find(params[:id])
     end
 
 end
