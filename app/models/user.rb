@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_many :users
+    has_many :favoritelocations 
 
     validates :first_name, presence: true
     validates :last_name, presence: true
