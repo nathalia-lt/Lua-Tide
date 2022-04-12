@@ -24,10 +24,12 @@ function App() {
 
 
   const [user, setUser] = useState("")
+  const [userFavorites, setUserFavorites] = useState([])
   useEffect(() => {
     fetch('/me').then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user))
+        r.json().then((user) => {setUser(user)
+        setUserFavorites(user.favoritelocations)})
       }
     });
   }, []);
@@ -112,7 +114,7 @@ function shortenDecimals(num, digits) {
             <Search setLatitude={setLatitude} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} />
           </Route>
           <Route path="/">
-            <Home user={user} makeCoordinates={makeCoordinates} numbersOfDays={setNumbersOfDays} setLatitude={setLatitude} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude}/>
+            <Home user={user} makeCoordinates={makeCoordinates} numbersOfDays={numbersOfDays} options={options} setLatitude={setLatitude} setResultData={setResultData} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude}/>
           </Route>
         </Switch>
       </div>

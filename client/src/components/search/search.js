@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
 //import axios from 'axios';
 //import XMLParser from 'react-xml-parser';
+import { useHistory } from 'react-router-dom';
 
 
-function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchResults, setNumbersOfDays, resultData, setSearch }) {
+
+function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchResults, setNumbersOfDays, resultData, setSearch, search }) {
+ 
+    let history = useHistory()
 
     function handleSearchChange(e) {
         setSearch(e.target.value)
+    }
+
+    function handleClickBack(){
+        history.push("./")
     }
 
     function handleNumbersOfDaysChange(e) {
@@ -62,15 +70,10 @@ function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchR
     }
 
 
-
- 
-
     // fetch('https://tides.p.rapidapi.com/tides?longitude=-2.097&latitude=44.414&interval=60&duration=1440', options)
     //     .then(response => response.json())
     //     .then(response => console.log(response))
     //     .catch(err => console.error(err));
-
-
 
     function resultsToDisplay(data) {
         if (data === []) {
@@ -96,11 +99,13 @@ function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchR
 
     return (
         <div>
+            <button onClick={handleClickBack}>Home</button>
             {/* //se um form para todos os inputs */}
             <form >
                 <input
                     type='text'
                     onChange={handleSearchChange}
+                    value={search}
                 />
 
                 {/* <select onChange={handleLocationChange} id="city" name="city">

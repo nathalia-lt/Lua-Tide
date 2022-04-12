@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_many :users
-    has_many :favoritelocations 
+    has_many :favoritelocations, dependent: :destroy
 
     validates :first_name, presence: true
     validates :last_name, presence: true
