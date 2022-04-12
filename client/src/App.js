@@ -5,6 +5,7 @@ import Login from "./components/login/Login"
 import Signup from "./components/signup/signup"
 import Search from "./components/search/search"
 import Home from "./components/home/Home"
+import Header from "./components/Header/Header"
 
 
 function App() {
@@ -103,6 +104,7 @@ function shortenDecimals(num, digits) {
   return (
     <BrowserRouter>
       <div className="App">
+        <Header user={user} logout={handleLogoutClick} userFavorites={userFavorites} />
         <Switch>
           <Route path="/login">
             <Login user={user} onLogin={setUser} logout={handleLogoutClick} setUserFavorites={setUserFavorites} />
