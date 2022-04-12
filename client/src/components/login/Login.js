@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 
 
-function Login( {user, onLogin, logout} ) {
+function Login( {user, onLogin, logout, setUserFavorites} ) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState([]);
+
+    let history = useHistory()
 
     function handleSubmit(e) {
         e.preventDefault();
-        setIsLoading(true);
         fetch("/login", {
             method: "POST",
             headers: {
@@ -17,10 +18,12 @@ function Login( {user, onLogin, logout} ) {
             },
             body: JSON.stringify({ username, password }),
         }).then((r) => {
-            setIsLoading(false);
             if (r.ok) {
-                r.json().then((user) => onLogin(user));
-            } else {
+                r.json().then((user) => {onLogin(user)
+                    setUserFavorites(user.favoritelocations)})
+                    history.push("./")
+                }
+            else {
                 r.json().then((err) => setErrors(err.errors));
             }
         });
@@ -50,7 +53,7 @@ function Login( {user, onLogin, logout} ) {
                             onChange={(e) => setPassword(e.target.value)}
                         />
 
-                        <button class="formSubmit" type="submit">{isLoading ? "Loading..." : "Login"}</button>
+                        <button class="formSubmit" type="submit">{user ? "Logout" : "Login"}</button>
 
                         <span>
                             {errors.map((err) => (

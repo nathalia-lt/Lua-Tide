@@ -105,7 +105,7 @@ function shortenDecimals(num, digits) {
       <div className="App">
         <Switch>
           <Route path="/login">
-            <Login user={user} onLogin={setUser} logout={handleLogoutClick} />
+            <Login user={user} onLogin={setUser} logout={handleLogoutClick} setUserFavorites={setUserFavorites} />
           </Route>
           <Route path="/signup">
             <Signup user={user} signUp={setUser} />

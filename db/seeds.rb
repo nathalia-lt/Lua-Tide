@@ -14,8 +14,6 @@ User.create!([
     }
 ])
 
-puts User.all[0].id
-
 Favoritelocation.create!([
     {
         user_id: 1,
