@@ -64,7 +64,7 @@ function makeCoordinates(){
   //latitude 
   //ceiling rounds up it to role number. round makes it more accurate
   let val = Math.round(Math.random()*10) //a number between 0 and 10
-  let lat = shortenDecimals(Math.random(60)*100,2)
+  let lat = shortenDecimals(Math.random(60)*60,2)
   setLatitude(val>5?-lat:lat)
   let val2 = Math.round(Math.random()*10)
   let lon = shortenDecimals(Math.random(100)*100,2)
@@ -109,10 +109,10 @@ function shortenDecimals(num, digits) {
             <Signup user={user} signUp={setUser} />
           </Route>
           <Route path="/search">
-            <Search setLatitude={setLatitude} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} numbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} />
+            <Search setLatitude={setLatitude} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} />
           </Route>
           <Route path="/">
-            <Home user={user} makeCoordinates={makeCoordinates} numbersOfDays={setNumbersOfDays} />
+            <Home user={user} makeCoordinates={makeCoordinates} numbersOfDays={setNumbersOfDays} setLatitude={setLatitude} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude}/>
           </Route>
         </Switch>
       </div>

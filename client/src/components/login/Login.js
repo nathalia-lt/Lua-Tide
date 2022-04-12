@@ -59,7 +59,7 @@ function Login( {user, onLogin, logout} ) {
                         </span>
 
                     </form>
-                    <button onClick={logout} className="logoutbtn" type="button">{(user) ? "LOGOUT" : "LOGIN"}</button>
+                    {/* <button onClick={logout} className="logoutbtn" type="button">{(user) ? "LOGOUT" : "LOGIN"}</button> */}
                 </div>
             </section>
         </div>
