@@ -100,7 +100,7 @@ function shortenDecimals(num, digits) {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header user={user} setUser={setUser} userFavorites={userFavorites} />
+        <Header user={user} setUser={setUser} userFavorites={userFavorites} makeCoordinates={makeCoordinates} numbersOfDays={numbersOfDays} options={options} setLatitude={setLatitude} setResultData={setResultData} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude} />
         <Switch>
           <Route path="/login">
             <Login user={user} onLogin={setUser} setUserFavorites={setUserFavorites} />
@@ -112,7 +112,8 @@ function shortenDecimals(num, digits) {
             <Search setLatitude={setLatitude} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} />
           </Route>
           <Route path="/">
-            <Home user={user} makeCoordinates={makeCoordinates} numbersOfDays={numbersOfDays} options={options} setLatitude={setLatitude} setResultData={setResultData} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude}/>
+            <Home user={user} makeCoordinates={makeCoordinates} numbersOfDays={numbersOfDays} options={options} setLatitude={setLatitude} setResultData={setResultData} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude} />
+
           </Route>
         </Switch>
       </div>

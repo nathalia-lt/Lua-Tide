@@ -99,7 +99,6 @@ function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchR
 
     return (
         <div>
-            <button onClick={handleClickBack}>Home</button>
             {/* //se um form para todos os inputs */}
             <form >
                 <input
