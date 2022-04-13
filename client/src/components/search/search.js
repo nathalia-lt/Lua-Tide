@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 //import XMLParser from 'react-xml-parser';
 import { useHistory } from 'react-router-dom';
 import heart from "./heart.png";
@@ -8,9 +8,10 @@ import "./search.css"
 
 
 
-function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchResults, setNumbersOfDays, resultData, setSearch, search, searchTitle, setSearchTitle }) {
+function Search({ searchUrl, user, setUser, latitude, longitude, userFavorites, setUserFavorites, setLatitude, setLongitude, shortenDecimals, searchResults, setNumbersOfDays, resultData, setSearch, search, searchTitle, setSearchTitle }) {
  
     let history = useHistory()
+    const [liked, setLiked] = useState(false)
     
 
     function handleSearchChange(e) {
@@ -71,6 +72,19 @@ function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchR
             setLatitude(17.3093)
             setLongitude(123.6402)
         }
+    }
+
+    //spread operator bellow, that calls all the user favorites. put all the details into the user favorites.
+    function handleLikeClick(){
+        let details = {
+            'city': search,
+            'longitude': longitude,
+            'latitude': latitude,
+        }
+        //axios simplefy the fetch process, axios is a js model
+        axios.post('/favoritelocations', details)
+        .then(r => {setUser(r.data)
+        setLiked(true)})
     }
 
 
@@ -140,8 +154,8 @@ function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchR
             {/* need to make a div for h2 because I want it to appear in the same line of the favorite button */}
             <div className="titlewrapper" >
             <h2> Results for {searchTitle}: </h2>
-            <img className="heart" src={redheart} />
-            </div>
+         {liked? <img className="heart" src={redheart} alt='liked' /> : <img onClick={handleLikeClick} className="heart" src={heart} alt='like' />}       
+     </div>
             <table>
                 <thead>
                     <tr>
