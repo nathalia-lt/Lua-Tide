@@ -109,7 +109,7 @@ function shortenDecimals(num, digits) {
             <Signup user={user} signUp={setUser} />
           </Route>
           <Route path="/search">
-            <Search setLatitude={setLatitude} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} />
+            <Search setLatitude={setLatitude} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} search={search} />
           </Route>
           <Route path="/">
             <Home user={user} makeCoordinates={makeCoordinates} numbersOfDays={numbersOfDays} options={options} setLatitude={setLatitude} setResultData={setResultData} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude} />
