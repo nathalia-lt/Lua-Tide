@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
 import './App.css';
 import Login from "./components/login/Login"
 import Signup from "./components/signup/signup"
@@ -8,8 +8,9 @@ import Home from "./components/home/Home"
 import Header from "./components/Header/Header"
 
 
-function App() {
 
+function App() {
+  let history = useHistory();
   //faco um const statement variable pq quero fazer aparecer latitude e longitude no meu dropdown. Depois tenho que fazer um if statement
     //allows to update values
     const [latitude, setLatitude] = useState('44.778')
@@ -26,6 +27,8 @@ function App() {
 
   const [user, setUser] = useState("")
   const [userFavorites, setUserFavorites] = useState([])
+  
+
   useEffect(() => {
     fetch('/me').then((r) => {
       if (r.ok) {
@@ -35,14 +38,7 @@ function App() {
     });
   }, []);
 
-  function handleLogoutClick() {
-    fetch("/logout", { method: "DELETE" }).then((r) => {
-      if (r.ok) {
-        setUser(null);
-      }
-    });
-  }
-
+  
   function searchResults(e) {
     e.preventDefault()
     makeCoordinates()
@@ -104,10 +100,10 @@ function shortenDecimals(num, digits) {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header user={user} logout={handleLogoutClick} userFavorites={userFavorites} />
+        <Header user={user} setUser={setUser} userFavorites={userFavorites} />
         <Switch>
           <Route path="/login">
-            <Login user={user} onLogin={setUser} logout={handleLogoutClick} setUserFavorites={setUserFavorites} />
+            <Login user={user} onLogin={setUser} setUserFavorites={setUserFavorites} />
           </Route>
           <Route path="/signup">
             <Signup user={user} signUp={setUser} />

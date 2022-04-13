@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {elastic as Menu} from "react-burger-menu"
 import "./Header.css"
+import { useHistory } from 'react-router-dom'
 
 
 
-function Header( {user, logout, userFavorites} ){
+function Header( {user, userFavorites, setUser} ){
+    const [showFavorites, setShowFavorites] = useState(false)
+    let history = useHistory()
+
+    function handleClickFavorites(){
+        console.log(showFavorites)
+        setShowFavorites(!showFavorites)
+    }
 
     function favoritesToDisplay(data){
         if (data === []) {
@@ -20,20 +28,32 @@ function Header( {user, logout, userFavorites} ){
         }
 }
 
+function handleLogoutClick() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        history.push("./login")
+        setUser(null);
+      }
+    });
+  }
+
+
     return(
     <div className="headerwrapper" >
         <div className="menuholder"> 
-        <Menu>
+        { user? <Menu> 
         <div> {user.username} </div>
         <div>Home</div>
-        <div>Favorites</div>
+        <div onClick={handleClickFavorites} >Favorites</div>
         {/* ul is an unordered list */}
-        <ul>
+        
+        {showFavorites? <ul>
             {favoritesToDisplay(user.favoritelocations)}
             
-        </ul>
-        <div onClick={logout}>Logout</div>
-    </Menu>
+        </ul> : null} 
+        {/* will render nothing */}
+        <div onClick={handleLogoutClick}>Logout</div>
+    </Menu> : null }
         </div>
         <div className="title">Lua Tide</div>
         </div>
