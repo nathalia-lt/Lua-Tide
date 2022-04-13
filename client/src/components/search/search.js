@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 //import axios from 'axios';
 //import XMLParser from 'react-xml-parser';
 import { useHistory } from 'react-router-dom';
+import heart from "./heart.png";
+import redheart from "./redheart.png";
+import "./search.css"
 
 
 
@@ -134,7 +137,11 @@ function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchR
                     Submit
                 </button>
             </form>
+            {/* need to make a div for h2 because I want it to appear in the same line of the favorite button */}
+            <div className="titlewrapper" >
             <h2> Results for {searchTitle}: </h2>
+            <img className="heart" src={redheart} />
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -144,7 +151,7 @@ function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchR
                     </tr>
                 </thead>
                 <tbody>
-                    {resultsToDisplay(resultData)}
+                    {resultsToDisplay(resultData) }
                 </tbody>
             </table>
         </div>

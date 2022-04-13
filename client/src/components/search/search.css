@@ -1,0 +1,13 @@
+/* display flex tells to loosely follow the same rule */
+.titlewrapper{
+    display :flex; 
+    flex-direction :row; 
+    justify-content :center;
+}
+
+/* vh  takes in consideration the size of my screen */
+.heart{
+    height: 3.3vh;
+    align-self :center;
+
+}
