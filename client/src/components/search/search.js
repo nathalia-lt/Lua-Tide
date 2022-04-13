@@ -5,9 +5,10 @@ import { useHistory } from 'react-router-dom';
 
 
 
-function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchResults, setNumbersOfDays, resultData, setSearch, search }) {
+function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchResults, setNumbersOfDays, resultData, setSearch, search, searchTitle, setSearchTitle }) {
  
     let history = useHistory()
+    
 
     function handleSearchChange(e) {
         setSearch(e.target.value)
@@ -76,15 +77,16 @@ function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchR
     //     .catch(err => console.error(err));
 
     function resultsToDisplay(data) {
-        if (data === []) {
+        //the data that we are showing in if empty or undefined, cant e map, because it is empty. If we write a condition it will not return any of this.
+        if (data === []|| data === undefined)  {
             return null
-        } else if (data === undefined) {
-
         }
         else {
             return data.map(date => {
+                
                 let dateTime = date.datetime.split(':')[0].split('T')
                 let dateTime2 = dateTime[0] + ' ' + dateTime[1] + ':00'
+                //takes us the first object in the array, the index of 1 is the time.
 
                 return (
                     <tr>
@@ -132,6 +134,7 @@ function Search({ searchUrl, setLatitude, setLongitude, shortenDecimals, searchR
                     Submit
                 </button>
             </form>
+            <h2> Results for {searchTitle}: </h2>
             <table>
                 <thead>
                     <tr>

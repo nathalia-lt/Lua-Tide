@@ -5,14 +5,16 @@ import { useHistory } from 'react-router-dom'
 
 
 
-function Header( {user, userFavorites, setUser,  latitude, longitude, setResultData, searchUrl, setLatitude, setLongitude, shortenDecimals, setSearchResults, setNumbersOfDays, resultData, setSearch, makeCoordinates, numbersOfDays, options}){
+function Header( {user, userFavorites, setUser, searchTitle, setSearchTitle,  latitude, longitude, setResultData, searchUrl, setLatitude, setLongitude, shortenDecimals, setSearchResults, setNumbersOfDays, resultData, setSearch, makeCoordinates, numbersOfDays, options}){
 
 
     const [showFavorites, setShowFavorites] = useState(false)
+    //we made a new state varible for determining if favorites are showing or not.
+
     let history = useHistory()
 
 
-
+// this function sets the value for showing the favorites and opposite.
     function handleClickFavorites(){
         console.log(showFavorites)
         setShowFavorites(!showFavorites)
@@ -28,6 +30,8 @@ function Header( {user, userFavorites, setUser,  latitude, longitude, setResultD
         return data.map(favorite => { 
             function handleSubmit(e){
                 e.preventDefault();
+                //every time we map throught the data we create a new function for each location, when run sets the long and lat for their respective values.
+                //and we submit a search for those values and takes us to search results page to show us the results.
                 setLatitude(favorite.latitude)
                 setLongitude(favorite.longitude)
                 setSearch(favorite.city)
@@ -35,6 +39,7 @@ function Header( {user, userFavorites, setUser,  latitude, longitude, setResultD
                 .then(response => response.json())
                 .then(response => 
                     {setResultData(response.extremes)
+                        setSearchTitle(favorite.city)
                     console.log(response)})
                 .catch(err => console.error(err));
                 //history.push is going to take us to the new page, nesse caso search pagina

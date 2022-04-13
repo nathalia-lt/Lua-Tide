@@ -11,6 +11,8 @@ import Header from "./components/Header/Header"
 
 function App() {
   let history = useHistory();
+  //I need to make a new state varible, that only update when submited search.
+  const [searchTitle, setSearchTitle] = useState('')
   //faco um const statement variable pq quero fazer aparecer latitude e longitude no meu dropdown. Depois tenho que fazer um if statement
     //allows to update values
     const [latitude, setLatitude] = useState('44.778')
@@ -46,6 +48,7 @@ function App() {
         .then(response => response.json())
         .then(response => 
             {setResultData(response.extremes)
+              setSearchTitle(search)
             console.log(response)})
         .catch(err => console.error(err));
 }
@@ -100,7 +103,7 @@ function shortenDecimals(num, digits) {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header user={user} setUser={setUser} userFavorites={userFavorites} makeCoordinates={makeCoordinates} numbersOfDays={numbersOfDays} options={options} setLatitude={setLatitude} setResultData={setResultData} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude} />
+        <Header user={user} setUser={setUser} searchTitle={searchTitle} setSearchTitle={setSearchTitle} userFavorites={userFavorites} makeCoordinates={makeCoordinates} numbersOfDays={numbersOfDays} options={options} setLatitude={setLatitude} setResultData={setResultData} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude} />
         <Switch>
           <Route path="/login">
             <Login user={user} onLogin={setUser} setUserFavorites={setUserFavorites} />
@@ -109,10 +112,10 @@ function shortenDecimals(num, digits) {
             <Signup user={user} signUp={setUser} />
           </Route>
           <Route path="/search">
-            <Search setLatitude={setLatitude} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} search={search} />
+            <Search setLatitude={setLatitude} searchTitle={searchTitle} setSearchTitle={setSearchTitle} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} search={search} />
           </Route>
           <Route path="/">
-            <Home user={user} makeCoordinates={makeCoordinates} numbersOfDays={numbersOfDays} options={options} setLatitude={setLatitude} setResultData={setResultData} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude} />
+            <Home user={user} searchTitle={searchTitle} setSearchTitle={setSearchTitle} makeCoordinates={makeCoordinates} numbersOfDays={numbersOfDays} options={options} setLatitude={setLatitude} setResultData={setResultData} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude} search={search} />
 
           </Route>
         </Switch>

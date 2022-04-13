@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 //import XMLParser from 'react-xml-parser';
 import { useHistory } from 'react-router-dom';
 
-function Home( { latitude, longitude, setResultData, searchUrl, setLatitude, setLongitude, shortenDecimals, setSearchResults, setNumbersOfDays, resultData, setSearch, makeCoordinates, numbersOfDays, options} ) {
+function Home( { latitude, longitude, search, setResultData, searchTitle, setSearchTitle, searchUrl, setLatitude, setLongitude, shortenDecimals, setSearchResults, setNumbersOfDays, resultData, setSearch, makeCoordinates, numbersOfDays, options} ) {
     // history deixa voce navegar com clicks, deixa voce contolar o futuro
     let history = useHistory()
 
@@ -14,6 +14,7 @@ function Home( { latitude, longitude, setResultData, searchUrl, setLatitude, set
         .then(response => response.json())
         .then(response => 
             {setResultData(response.extremes)
+                setSearchTitle(search)
             console.log(response)})
         .catch(err => console.error(err));
         //history.push is going to take us to the new page, nesse caso search pagina
