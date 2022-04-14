@@ -101,7 +101,8 @@ function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
                 </div>
             </section>
         </div>
-        <hr></hr>
+        <hr></hr> 
+        {/* hr makes a linha para separar as coisas */}
         <div class="formContainer">
             <section class="form">
                 <div class="center">

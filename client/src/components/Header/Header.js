@@ -52,12 +52,12 @@ function Header({ user, userFavorites, setUser, searchTitle, setSearchTitle, lat
                     //history.push is going to take us to the new page, nesse caso search pagina
                     history.push("./search")
                 }
-                
-                let details = {"id": favorite.id}
+              
                 function handleDelete(){
                     axios.delete("/favoritelocations/" + favorite.id)
                     .then(r => {
                         setUser(r.data)
+                        //what Iam updating I am seting the response to the user
                     })
                     
                 }
@@ -66,6 +66,7 @@ function Header({ user, userFavorites, setUser, searchTitle, setSearchTitle, lat
 
                 // li is list items 
                 // para colocar o x eu preciso fazer um wrapper em volta do elemento e assim.
+                //sempre que eu quero que dois elementos estejam um do lado do outro eu tenho que wrappe them.
                 
                 return (<li className="favoriteItemWrapper" > <div onClick={handleSubmit}  >{favorite.city}</div>
                 <img className="button" src={closebutton} alt="delete" onClick={handleDelete} />

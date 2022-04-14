@@ -106,28 +106,86 @@ function shortenDecimals(num, digits) {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header user={user} setUser={setUser} searchTitle={searchTitle} setSearchTitle={setSearchTitle} userFavorites={userFavorites} makeCoordinates={makeCoordinates} numbersOfDays={numbersOfDays} options={options} setLatitude={setLatitude} setResultData={setResultData} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude} />
+        <Header 
+        user={user} 
+        setUser={setUser} 
+        searchTitle={searchTitle} 
+        setSearchTitle={setSearchTitle} 
+        userFavorites={userFavorites} 
+        makeCoordinates={makeCoordinates} 
+        numbersOfDays={numbersOfDays} 
+        options={options}
+        setLatitude={setLatitude} 
+        setResultData={setResultData} 
+        setLongitude={setLongitude} 
+        shortenDecimals={shortenDecimals} 
+        searchResults={searchResults} 
+        setNumbersOfDays={setNumbersOfDays} 
+        resultData={resultData} 
+        setSearch={setSearch} 
+        latitude={latitude} 
+        longitude={longitude} />
         <Switch>
           <Route path="/login">
-            <Login user={user} onLogin={setUser} setUserFavorites={setUserFavorites} />
+            <Login 
+            user={user} 
+            onLogin={setUser} 
+            setUserFavorites={setUserFavorites} />
           </Route>
-
           <Route path="/authorization">
-            <Authorization user={user} setUser={setUser} signUp={setUser} onLogin={setUser} setUserFavorites={setUserFavorites} />
+            <Authorization 
+            user={user} 
+            setUser={setUser} 
+            signUp={setUser} 
+            onLogin={setUser} 
+            setUserFavorites={setUserFavorites} />
           </Route>
-
           <Route path="/edit">
-            <Edit user={user} setUser={setUser} />
+            <Edit 
+            user={user} 
+            setUser={setUser} />
           </Route>
-
           <Route path="/signup">
-            <Signup user={user} signUp={setUser} />
+            <Signup 
+            user={user} 
+            signUp={setUser} />
           </Route>
           <Route path="/search">
-            <Search user={user} setUser={setUser} setLatitude={setLatitude} latitude={latitude} longitude={longitude} searchTitle={searchTitle} setSearchTitle={setSearchTitle} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} search={search} />
+            <Search 
+            user={user} 
+            setUser={setUser} 
+            setLatitude={setLatitude} 
+            latitude={latitude} 
+            longitude={longitude} 
+            searchTitle={searchTitle} 
+            setSearchTitle={setSearchTitle} 
+            setLongitude={setLongitude} 
+            shortenDecimals={shortenDecimals} 
+            searchResults={searchResults} 
+            setNumbersOfDays={setNumbersOfDays} 
+            resultData={resultData} 
+            setSearch={setSearch}
+            search={search} />
           </Route>
           <Route path="/">
-            <Home user={user} searchTitle={searchTitle} setSearchTitle={setSearchTitle} makeCoordinates={makeCoordinates} numbersOfDays={numbersOfDays} options={options} setLatitude={setLatitude} setResultData={setResultData} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude} search={search} />
+            <Home 
+            user={user} 
+            searchTitle={searchTitle} 
+            setSearchTitle={setSearchTitle} 
+            makeCoordinates={makeCoordinates} 
+            numbersOfDays={numbersOfDays} 
+            options={options} 
+            setLatitude={setLatitude} 
+            setResultData={setResultData} 
+            setLongitude={setLongitude} 
+            shortenDecimals={shortenDecimals} 
+            searchResults={searchResults} 
+            setNumbersOfDays={setNumbersOfDays} 
+            resultData={resultData} 
+            setSearch={setSearch} 
+            latitude={latitude} 
+            longitude={longitude} 
+            search={search} />
           </Route>
         </Switch>
       </div>
