@@ -6,6 +6,7 @@ import Signup from "./components/signup/signup"
 import Search from "./components/search/search"
 import Home from "./components/home/Home"
 import Header from "./components/Header/Header"
+import Authorization from "./components/authorization/authorization"
 
 
 
@@ -109,6 +110,11 @@ function shortenDecimals(num, digits) {
           <Route path="/login">
             <Login user={user} onLogin={setUser} setUserFavorites={setUserFavorites} />
           </Route>
+
+          <Route path="/authorization">
+            <Authorization user={user} signUp={setUser} onLogin={setUser} setUserFavorites={setUserFavorites} />
+          </Route>
+
           <Route path="/signup">
             <Signup user={user} signUp={setUser} />
           </Route>
@@ -117,7 +123,6 @@ function shortenDecimals(num, digits) {
           </Route>
           <Route path="/">
             <Home user={user} searchTitle={searchTitle} setSearchTitle={setSearchTitle} makeCoordinates={makeCoordinates} numbersOfDays={numbersOfDays} options={options} setLatitude={setLatitude} setResultData={setResultData} setLongitude={setLongitude} shortenDecimals={shortenDecimals} searchResults={searchResults} setNumbersOfDays={setNumbersOfDays} resultData={resultData} setSearch={setSearch} latitude={latitude} longitude={longitude} search={search} />
-
           </Route>
         </Switch>
       </div>
