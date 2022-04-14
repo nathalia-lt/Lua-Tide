@@ -15,6 +15,10 @@ function Header({ user, userFavorites, setUser, searchTitle, setSearchTitle, lat
 
     let history = useHistory()
 
+    function handleClickUser(){
+        history.push("./edit")
+    }
+
 
     // this function sets the value for showing the favorites and opposite.
     function handleClickFavorites() {
@@ -89,7 +93,7 @@ function Header({ user, userFavorites, setUser, searchTitle, setSearchTitle, lat
         <div className="headerwrapper" >
             <div className="menuholder">
                 {user ? <Menu>
-                    <div> {user.username} </div>
+                    <div onClick={handleClickUser}> {user.username} </div>
                     <div onClick={handleClickHome} >Home</div>
                     <div className="favorites" onClick={handleClickFavorites} >Favorites</div>
                     {/* ul is an unordered list */}

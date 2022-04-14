@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 
 
-function Login( {user, setUser, onLogin, logout, setUserFavorites} ) {
+function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
@@ -176,4 +176,4 @@ function Login( {user, setUser, onLogin, logout, setUserFavorites} ) {
 
 }
 
-export default Login
+export default Authorization

@@ -7,6 +7,7 @@ import Search from "./components/search/search"
 import Home from "./components/home/Home"
 import Header from "./components/Header/Header"
 import Authorization from "./components/authorization/authorization"
+import Edit from "./components/edit/edit"
 
 
 
@@ -113,6 +114,10 @@ function shortenDecimals(num, digits) {
 
           <Route path="/authorization">
             <Authorization user={user} setUser={setUser} signUp={setUser} onLogin={setUser} setUserFavorites={setUserFavorites} />
+          </Route>
+
+          <Route path="/edit">
+            <Edit user={user} setUser={setUser} />
           </Route>
 
           <Route path="/signup">
