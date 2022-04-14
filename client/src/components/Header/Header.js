@@ -93,9 +93,10 @@ function Header({ user, userFavorites, setUser, searchTitle, setSearchTitle, lat
         <div className="headerwrapper" >
             <div className="menuholder">
                 {user ? <Menu>
-                    <div onClick={handleClickUser}> {user.username} </div>
-                    <div onClick={handleClickHome} >Home</div>
-                    <div className="favorites" onClick={handleClickFavorites} >Favorites</div>
+                    <div className="menutitle" > Menu </div>
+                    <div className="menu" onClick={handleClickUser}> {user.username} </div>
+                    <div className="menu" onClick={handleClickHome} >Home</div>
+                    <div className="menu" onClick={handleClickFavorites} >Favorites</div>
                     {/* ul is an unordered list */}
 
                     {showFavorites ? <ul>
@@ -103,7 +104,7 @@ function Header({ user, userFavorites, setUser, searchTitle, setSearchTitle, lat
 
                     </ul> : null}
                     {/* will render nothing */}
-                    <div onClick={handleLogoutClick}>Logout</div>
+                    <div className="menu" onClick={handleLogoutClick}>Logout</div>
                 </Menu> : null}
             </div>
             <div className="title">Lua Tide</div>

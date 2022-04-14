@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Edit( user, setUser ) {
+function Edit( {user, setUser} ) {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -25,7 +25,9 @@ function Edit( user, setUser ) {
             }),
         }).then((r) => {
             if (r.ok) {
-                setUser(r.data)
+                r.json().then (r => {setUser(r)
+                alert("You've been successfully update")
+                })
             } else {
                 r.json().then((err) => setErrors(err.errors));
             }
