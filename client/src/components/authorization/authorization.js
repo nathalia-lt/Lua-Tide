@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 
 
-function Login( {user, onLogin, logout, setUserFavorites} ) {
+function Login( {user, setUser, onLogin, logout, setUserFavorites} ) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
@@ -54,7 +54,9 @@ function Login( {user, onLogin, logout, setUserFavorites} ) {
                 password_confirmation: passwordConfirmation,
             }),
         }).then((r) => {
-            if (r.ok) {
+            if (r.ok) { setUser(r.data)
+                history.push('./')
+                // window.location.reload
             } else {
                 r.json().then((err) => setErrors(err.errors));
             }

@@ -74,7 +74,7 @@ function Header({ user, userFavorites, setUser, searchTitle, setSearchTitle, lat
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
-                history.push("./login")
+                history.push("./authorization")
                 setUser(null);
             }
         });

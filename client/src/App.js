@@ -112,7 +112,7 @@ function shortenDecimals(num, digits) {
           </Route>
 
           <Route path="/authorization">
-            <Authorization user={user} signUp={setUser} onLogin={setUser} setUserFavorites={setUserFavorites} />
+            <Authorization user={user} setUser={setUser} signUp={setUser} onLogin={setUser} setUserFavorites={setUserFavorites} />
           </Route>
 
           <Route path="/signup">
