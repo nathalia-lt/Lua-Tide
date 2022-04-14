@@ -3,6 +3,7 @@ import { elastic as Menu } from "react-burger-menu"
 import "./Header.css"
 import { useHistory } from 'react-router-dom'
 import closebutton from "./closebutton.png"
+import axios from 'axios';
 
 
 
@@ -10,7 +11,7 @@ function Header({ user, userFavorites, setUser, searchTitle, setSearchTitle, lat
 
 
     const [showFavorites, setShowFavorites] = useState(false)
-    //we made a new state varible for determining if favorites are showing or not.
+    //we made a new state varible for determining if favorites are showing or not. Isso deixa o valor dinamico.
 
     let history = useHistory()
 
@@ -47,11 +48,23 @@ function Header({ user, userFavorites, setUser, searchTitle, setSearchTitle, lat
                     //history.push is going to take us to the new page, nesse caso search pagina
                     history.push("./search")
                 }
+                
+                let details = {"id": favorite.id}
+                function handleDelete(){
+                    axios.delete("/favoritelocations/" + favorite.id)
+                    .then(r => {
+                        setUser(r.data)
+                    })
+                    
+                }
+
+
+
                 // li is list items 
                 // para colocar o x eu preciso fazer um wrapper em volta do elemento e assim.
                 
                 return (<li className="favoriteItemWrapper" > <div onClick={handleSubmit}  >{favorite.city}</div>
-                <img className="button" src={closebutton} alt="delete" />
+                <img className="button" src={closebutton} alt="delete" onClick={handleDelete} />
                 </li>)
 
             })

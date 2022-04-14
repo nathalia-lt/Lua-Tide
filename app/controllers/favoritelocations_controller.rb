@@ -24,12 +24,13 @@ class FavoritelocationsController < ApplicationController
     def destroy
         favoritelocations = find_favoritelocations
         favoritelocations.destroy
-        head :no_content
+        user = find_user
+        render json: user, status: :created
     end
 
     def update
         favoritelocations = find_favoritelocations
-        favoritelocations.update!(pet_params)
+        favoritelocations.update!(favoritelocations_params)
         render json: favoritelocations
     end
 
