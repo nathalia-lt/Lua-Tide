@@ -30,12 +30,12 @@ function Login( {user, onLogin, logout, setUserFavorites} ) {
     }
 
     return (
-        <div class="formContainer">
+        <div className="formContainer">
             <section class="form">
                 <div class="center">
-                    <h1>Welcome Back!</h1>
-                    <hr class="formHr" />
-                    <form onSubmit={handleSubmit}>
+                    <h1>Login</h1>
+                    <hr class="formhr" />
+                    <form  onSubmit={handleSubmit}>
 
                         <input
                             type="text"

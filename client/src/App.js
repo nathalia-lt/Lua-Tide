@@ -40,7 +40,8 @@ function App() {
     });
   }, []);
 
-  
+  //The reason that I me making fake coordinates, the API that Im using, use latitude and longitude to search instead of city name. 
+  //Since I dont know the latitude ande longitude, and I do not want to pay for another API. I used a number generator.make coordinates function
   function searchResults(e) {
     e.preventDefault()
     makeCoordinates()
@@ -71,8 +72,8 @@ function makeCoordinates(){
   let val2 = Math.round(Math.random()*10)
   let lon = shortenDecimals(Math.random(100)*100,2)
   setLongitude(val2>5?-lon:lon)
-
 }
+// the range for lat and long are especific, using this formato API doesnt have date for all the cities. Im still working on to make it more likely to get results
 
 
 function shortenDecimals(num, digits) { 
