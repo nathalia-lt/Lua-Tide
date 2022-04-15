@@ -34,8 +34,8 @@ function Home( { latitude, longitude, search, setResultData, searchTitle, setSea
         {/* <img className="oceanimage" src={oceano} alt="oceano" /> */}
         <div className="backgroundimage" ></div>
         <img className="apollomoon" src={apollomoon} alt="moon" />
-        <form onSubmit={handleSubmit}>
-            <input type="text" 
+        <form className="searchform" onSubmit={handleSubmit}>
+            <input className="searchbar" placeholder="Search here" type="text" 
             onChange={handleSearchChange}
             />
         </form>
@@ -43,7 +43,5 @@ function Home( { latitude, longitude, search, setResultData, searchTitle, setSea
         </div>
     )
 }
-
-
 
 export default Home
