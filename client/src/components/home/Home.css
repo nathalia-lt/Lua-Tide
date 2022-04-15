@@ -1,4 +1,4 @@
-
+/* 
 .mainhome{
     background: url('./oceano.jpeg') center no-repeat;
     background-size: cover;
@@ -12,4 +12,48 @@
     height: 100%;
     width: 100%;
     position: absolute;
+} */
+
+
+/* position means that is not to display flex or wont push other stuff around it 
+you have to put height and width when it is in na div
+z-index allows you to put design on top of the image  */
+
+.backgroundimage{
+    background: blue url("oceano.jpeg") no-repeat;
+    margin: 0;
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    overflow-x: hidden;
+    filter: brightness(180%);
+}
+
+/* 
+display block just put it right in the middle */
+
+.apollomoon{
+    position: absolute;
+    top: -05%;
+    left: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    transform: scale(0.70); 
+    z-index: -1;
+    animation: grow 25s;
+    border-radius: 100%;
+}
+/* transform  in apollomoon scale has to match the transform scale in @keyframes */
+
+@keyframes grow {
+    0% {
+        transform: scale(.25);
+    }
+    100% {
+        transform: scale(0.70);
+    }
+    
 }
