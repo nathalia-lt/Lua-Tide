@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './edit.css'
 
 function Edit( {user, setUser} ) {
 
@@ -41,7 +42,7 @@ function Edit( {user, setUser} ) {
                     <h1 class="formh1">Edit your profile</h1>
                     <hr class="formHr" />
 
-                    <form onSubmit={handleSubmit}>
+                    <form className="login-form" onSubmit={handleSubmit}>
                         <input
                             type="text"
                             class="firstLastNames"

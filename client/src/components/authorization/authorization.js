@@ -121,7 +121,7 @@ function scrollBottom(){
                     <h1 className="formh1">Sign Up</h1>
                     <hr className="formHr" />
 
-                    <form onSubmit={handleSignUpSubmit}>
+                    <form className='login-form' onSubmit={handleSignUpSubmit}>
                         <input
                             type="text"
                             className="firstLastNames"
@@ -181,8 +181,9 @@ function scrollBottom(){
                         </span>
 
                     </form>
-                    <button onClick={scrollTop} className="formSubmit" >Log in here  </button>    
-
+                    <div className="signscrollbuttonwrapper" >
+                    <button onClick={scrollTop} className="signscroll" >Log in here  </button>    
+                    </div>
                 </div>
             </section>
         </div>
