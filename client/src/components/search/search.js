@@ -9,16 +9,16 @@ import "./search.css"
 
 
 function Search({ searchUrl, user, setUser, latitude, longitude, userFavorites, setUserFavorites, setLatitude, setLongitude, shortenDecimals, searchResults, setNumbersOfDays, resultData, setSearch, search, searchTitle, setSearchTitle }) {
- 
+
     let history = useHistory()
     const [liked, setLiked] = useState(false)
-    
+
 
     function handleSearchChange(e) {
         setSearch(e.target.value)
     }
 
-    function handleClickBack(){
+    function handleClickBack() {
         history.push("./")
     }
 
@@ -28,7 +28,7 @@ function Search({ searchUrl, user, setUser, latitude, longitude, userFavorites, 
 
     function handleSearchSubmit(e) {
         e.preventDefault()
-       // console.log(latitude, longitude)
+        // console.log(latitude, longitude)
     }
 
     function handleStartDateChange(e) {
@@ -75,16 +75,18 @@ function Search({ searchUrl, user, setUser, latitude, longitude, userFavorites, 
     }
 
     //spread operator bellow, that calls all the user favorites. put all the details into the user favorites.
-    function handleLikeClick(){
+    function handleLikeClick() {
         let details = {
-            'city': search,
+            'city': capitalize(search),
             'longitude': longitude,
             'latitude': latitude,
         }
         //axios simplefy the fetch process, axios is a js model
         axios.post('/favoritelocations', details)
-        .then(r => {setUser(r.data)
-        setLiked(true)})
+            .then(r => {
+                setUser(r.data)
+                setLiked(true)
+            })
     }
 
 
@@ -94,13 +96,13 @@ function Search({ searchUrl, user, setUser, latitude, longitude, userFavorites, 
     //     .catch(err => console.error(err));
 
     function resultsToDisplay(data) {
-        //the data that we are showing in if empty or undefined, cant e map, because it is empty. If we write a condition it will not return any of this.
-        if (data === []|| data === undefined)  {
+        //the data that I are showing in if empty or undefined, cant e map, because it is empty. If we write a condition it will not return any of this.
+        if (data === [] || data === undefined) {
             return null
         }
         else {
             return data.map(date => {
-                
+
                 let dateTime = date.datetime.split(':')[0].split('T')
                 let dateTime2 = dateTime[0] + ' ' + dateTime[1] + ':00'
                 //takes us the first object in the array, the index of 1 is the time.
@@ -116,10 +118,26 @@ function Search({ searchUrl, user, setUser, latitude, longitude, userFavorites, 
         }
     }
 
+    function capitalize(str) {
+        str = str.toLowerCase().split(' ');
+        for (let i = 0; i < str.length; i++) {
+            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+        }
+        return str.join(' ');
+    }
+
     return (
         <div>
+            <section>
+        <div class="wave">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="content">
             {/* //se um form para todos os inputs */}
-            <form >
+            <form className= "secondsearchwrapper">
+                <label>City</label>
                 <input
                     type='text'
                     onChange={handleSearchChange}
@@ -135,8 +153,9 @@ function Search({ searchUrl, user, setUser, latitude, longitude, userFavorites, 
             <option value="Mont Saint-Michel">Monte Saint-Michel, France</option>
             <option value="Derby">Derby, Australia</option>
         </select> */}
+                <div className= "dayswrapper">
                 <label>Days</label>
-                <select onChange={handleNumbersOfDaysChange} id="days" name="days">
+                <select  onChange={handleNumbersOfDaysChange} id="days" name="days">
                     <option value="1440">1</option>
                     <option value="2880">2</option>
                     <option value="4320">3</option>
@@ -145,29 +164,35 @@ function Search({ searchUrl, user, setUser, latitude, longitude, userFavorites, 
                     <option value="8640">6</option>
                     <option value="10080">7</option>
                 </select>
+                </div>
 
 
-                <button onClick={searchResults}>
+                <button className="buttonsubmit" onClick={searchResults}>
                     Submit
                 </button>
             </form>
             {/* need to make a div for h2 because I want it to appear in the same line of the favorite button */}
             <div className="titlewrapper" >
-            <h2> Results for {searchTitle}: </h2>
-         {liked? <img className="heart" src={redheart} alt='liked' /> : <img onClick={handleLikeClick} className="heart" src={heart} alt='like' />}       
-     </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Height (Measured in mean sea level)</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {resultsToDisplay(resultData) }
-                </tbody>
-            </table>
+                <h2> Results for {capitalize(searchTitle)} </h2>
+                {liked ? <img className="heart" src={redheart} alt='liked' /> : <img onClick={handleLikeClick} className="heart" src={heart} alt='like' />}
+            </div>
+            <div className="tablewrapper" >
+                <table className="table" >
+                    <thead>
+                        <tr className="tablehead" >
+                            <th>Date</th>
+                            <th>Height (Measured in mean sea level)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {resultsToDisplay(resultData)}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+        
         </div>
     )
 }

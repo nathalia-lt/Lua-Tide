@@ -52,7 +52,7 @@ function Header({ user, userFavorites, setUser, searchTitle, setSearchTitle, lat
                     //history.push is going to take us to the new page, nesse caso search pagina
                     history.push("./search")
                 }
-              
+        
                 function handleDelete(){
                     axios.delete("/favoritelocations/" + favorite.id)
                     .then(r => {
