@@ -17,6 +17,7 @@ z-index allows you to put design on top of the image  */
     border: none;
     text-align: center;
     color: black;
+    animation: appear 30s;
 }
 
 .searchbar::placeholder{
@@ -59,6 +60,18 @@ display block just put it right in the middle */
     }
     100% {
         transform: scale(0.70);
+    }
+    
+}
+
+@keyframes appear{
+    0% {
+        /* transform: scale(.25);  */
+        opacity: 0;
+    }
+    100% {
+        /* transform: scale(1); */
+         opacity: 1;
     }
     
 }
