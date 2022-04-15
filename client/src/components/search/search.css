@@ -11,11 +11,13 @@ h2{
     font: arial, helvetica, sans-serif;
 }
 
+
 /* vh  takes in consideration the size of my screen */
 .heart{
     height: 3.3vh;
     align-self :center;
     margin-left: 2%;
+    cursor: pointer;
 }
 
 .table{
@@ -29,6 +31,8 @@ h2{
     border-collapse: collapse;
 }
 
+
+
 .tablewrapper{
     display: flex;
     flex-direction :row;
@@ -36,9 +40,15 @@ h2{
     margin-top: 2%;
 }
 
-td,th{
+td{
     padding: 1.5%;
     border: 1px solid black;
+}
+
+th {
+    padding: 0%;
+    border: 1px solid black;
+
 }
 
 .secondsearchwrapper{
@@ -47,6 +57,7 @@ td,th{
     flex-direction :column;
     margin-top: 8%;
     margin-left: 13%;
+    align-items: center;
 }
 
 
@@ -59,6 +70,9 @@ td,th{
     border-radius: 5px;
     font-size: 120%;
     transition: .5s ease;
+    width: 80%;
+    margin-top: 10%;
+    
 
 }
 
@@ -74,6 +88,35 @@ td,th{
     transition: .5s ease;
 }
 
+.searchpageinput{
+    width: 100%;
+    transition: .5s ease;
+    font-size: 20px;
+    margin-bottom: 6%;
+    margin-top: 7%;
+}
+
+.searchpageinput:focus{
+    width: 140%;
+    transition: .5s ease;
+    /* margin-left: -20%; */
+}
+.citylabel{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.dayslabel{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.dayswrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 50%;
+}
 
 /* wave effect of the page  */
 section

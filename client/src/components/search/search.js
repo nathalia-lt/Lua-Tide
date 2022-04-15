@@ -137,25 +137,16 @@ function Search({ searchUrl, user, setUser, latitude, longitude, userFavorites, 
         <div class="content">
             {/* //se um form para todos os inputs */}
             <form className= "secondsearchwrapper">
-                <label>City</label>
-                <input
+                <label className="citylabel" >City</label>
+                <input className="searchpageinput"
                     type='text'
                     onChange={handleSearchChange}
                     value={search}
                 />
 
-                {/* <select onChange={handleLocationChange} id="city" name="city">
-            <option value="Bay of Fundy">Bay of Fundy, Canada</option>
-            <option value="Ungava Bay">Ungava, Quebec</option>
-            <option value="Bristol Channel">Bristol Channel, Uk</option>
-            <option value="Cook Inlet">Cook Inlet, Alaska</option>
-            <option value="Rio Gallegos">Rio Gallegos, Argentina</option>
-            <option value="Mont Saint-Michel">Monte Saint-Michel, France</option>
-            <option value="Derby">Derby, Australia</option>
-        </select> */}
                 <div className= "dayswrapper">
-                <label>Days</label>
-                <select  onChange={handleNumbersOfDaysChange} id="days" name="days">
+                <label className="dayslabel"  >Days</label>
+                <select onChange={handleNumbersOfDaysChange} id="days" name="days">
                     <option value="1440">1</option>
                     <option value="2880">2</option>
                     <option value="4320">3</option>
@@ -181,7 +172,7 @@ function Search({ searchUrl, user, setUser, latitude, longitude, userFavorites, 
                     <thead>
                         <tr className="tablehead" >
                             <th>Date</th>
-                            <th>Height (Measured in mean sea level)</th>
+                            <th className='tablehead-height'>Height (mean sea level)</th>
                             <th>Status</th>
                         </tr>
                     </thead>
