@@ -1,3 +1,77 @@
+* { 
+    box-sizing: border-box;
+  }
+
 .formContainer input{
-    padding: 10px;
+}
+
+.login-form{
+    display :flex; 
+    flex-direction :column; 
+    justify-content :center;
+    margin-left: 38%;
+    margin-top: 0%;
+    font-size: 20px;
+    width: 25%;
+}
+h1{
+    font: arial, helvetica, sans-serif;
+    font-size: 40px;
+}
+.userlogin{
+    font-size: 25px;
+    width: 100%;
+    margin-bottom: 2%;
+    margin-top: 10%;
+    border: 1px solid black;
+}
+
+.formSubmit{
+    width: 100%;
+    color: white;
+    background-color:#006994; 
+    border: none;
+    border-radius: 5px;
+    font-size: 120%;
+    transition: .5s ease;
+    width: 80%;
+    margin-top: 10%;
+    align-self: center;
+}
+
+.formSubmit:hover{
+    transform: scale(1.2); 
+    transition: .5s ease;
+    cursor: pointer;
+}
+
+.formSubmit:active{
+    transform: scale(.8); 
+    transition: .5s ease;
+}
+
+/* Para forcar a pagina a nao rolar para baixo */
+
+body{
+    overflow: hidden;
+}
+
+.signscroll{
+    width: 100%;
+    color: white;
+    background-color:#006994; 
+    border: none;
+    border-radius: 5px;
+    font-size: 130%;
+    transition: .5s ease;
+    width: 20%;
+    align-self: center;
+    margin-top: 1%;
+}
+
+.signscrollbuttonwrapper{
+    display: flex;
+    flex-direction :column; 
+    justify-content :center;
+    margin-top: 16%;
 }

@@ -31,7 +31,7 @@ function Login( {user, onLogin, logout, setUserFavorites} ) {
 
     return (
         <div className="formContainer">
-            <section class="form">
+            <section className="loginform">
                 <div class="center">
                     <h1>Login</h1>
                     <hr class="formhr" />

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
+import "./authorization.css"
+import {animateScroll as ScrollAction} from 'react-scroll';
 
 
 function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
@@ -27,6 +29,14 @@ function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
                 r.json().then((err) => setErrors(err.errors));
             }
         });
+    }
+
+    function scrollTop(){
+        ScrollAction.scrollToTop();
+        // window.scrollTo(0,1000)
+    } 
+function scrollBottom(){
+        ScrollAction.scrollToBottom();
     }
 
     const [firstName, setFirstName] = useState("");
@@ -64,15 +74,15 @@ function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
     }
 
     return (
-        <React.Fragment>
+        <div className="authorization">
         <div className="formContainer">
-            <section class="form">
-                <div class="center">
+            <section className="loginformauth">
+                <div className="login-center">
                     <h1>Login</h1>
-                    <hr class="formhr" />
-                    <form  onSubmit={handleSubmit}>
+                    <hr className="formhr" />
+                    <form  className='login-form' onSubmit={handleSubmit}>
 
-                        <input
+                        <input className="userlogin"
                             type="text"
                             name="username"
                             placeholder="Username"
@@ -80,7 +90,7 @@ function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
                             onChange={(e) => setUsername(e.target.value)}
                         />
 
-                        <input
+                        <input className="userlogin"
                             type="password"
                             name="password"
                             placeholder="Password"
@@ -88,8 +98,7 @@ function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
                             onChange={(e) => setPassword(e.target.value)}
                         />
 
-                        <button class="formSubmit" type="submit">{user ? "Logout" : "Login"}</button>
-
+                        <button className="formSubmit" type="submit">{user ? "Logout" : "Login"}</button>
                         <span>
                             {errors.map((err) => (
                                 <span key={err}>{err}</span>
@@ -97,22 +106,25 @@ function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
                         </span>
 
                     </form>
-                    {/* <button onClick={logout} className="logoutbtn" type="button">{(user) ? "LOGOUT" : "LOGIN"}</button> */}
+                    <div className="signscrollbuttonwrapper">
+                    <label className="signscrollbutton" >Not a user?</label>
+                    <button onClick={scrollBottom} className="signscroll" >Sign up here  </button>   
+                    </div> 
                 </div>
             </section>
         </div>
         <hr></hr> 
         {/* hr makes a linha para separar as coisas */}
-        <div class="formContainer">
-            <section class="form">
-                <div class="center">
-                    <h1 class="formh1">Sign Up</h1>
-                    <hr class="formHr" />
+        <div className="formContainer">
+            <section className="form">
+                <div className="center">
+                    <h1 className="formh1">Sign Up</h1>
+                    <hr className="formHr" />
 
                     <form onSubmit={handleSignUpSubmit}>
                         <input
                             type="text"
-                            class="firstLastNames"
+                            className="firstLastNames"
                             name="firstName"
                             placeholder="First Name"
                             value={firstName}
@@ -121,7 +133,7 @@ function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
 
                         <input
                             type="text"
-                            class="firstLastNames"
+                            className="firstLastNames"
                             name="lastName"
                             placeholder="Last Name"
                             value={lastName}
@@ -160,7 +172,7 @@ function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
                             onChange={(e) => setPasswordConfirmation(e.target.value)}
                         />
 
-                        <button class="formSubmit" type="submit">Sign Up</button>
+                        <button className="formSubmit" type="submit">Sign Up</button>
 
                         <span>
                             {errors.map((err) => (
@@ -169,10 +181,12 @@ function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
                         </span>
 
                     </form>
+                    <button onClick={scrollTop} className="formSubmit" >Log in here  </button>    
+
                 </div>
             </section>
         </div>
-        </React.Fragment>
+        </div>
     )
 
 }
