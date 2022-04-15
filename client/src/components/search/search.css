@@ -53,8 +53,25 @@ td,th{
 /* here I am styling the button */
 
 .buttonsubmit{
+    color: white;
+    background-color:#006994; 
+    border: none;
+    border-radius: 5px;
+    font-size: 120%;
+    transition: .5s ease;
 
+}
 
+.buttonsubmit:hover{
+    cursor: pointer;
+    transform: scale(1.2); 
+    transition: .5s ease;
+}
+
+.buttonsubmit:active{
+    cursor: pointer;
+    transform: scale(.8); 
+    transition: .5s ease;
 }
 
 
