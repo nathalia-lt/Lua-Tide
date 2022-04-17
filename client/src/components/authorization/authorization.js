@@ -38,7 +38,7 @@ function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
         ScrollAction.scrollToTop();
         // window.scrollTo(0,1000)
     } 
-function scrollBottom(){
+    function scrollBottom(){
         ScrollAction.scrollToBottom();
     }
 

@@ -36,6 +36,19 @@ z-index allows you to put design on top of the image  */
     overflow-x: hidden;
     filter: brightness(180%);
 }
+/* 
+it is one sigular obj that is why i dont need to put as background,
+como eu fiz com a pagina do oceano que eu precisei colocar como plano de fundo total.
+eu uso filter para inverter a cor da flecha que e preta para branca. */
+.arrowdown{
+    filter: invert(100%);
+    position: absolute; 
+    top: 10%;
+    margin-top: 37%;
+    margin-left: -48%;
+    cursor: pointer;
+
+}
 
 /* 
 display block just put it right in the middle */
