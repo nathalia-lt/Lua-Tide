@@ -11,10 +11,43 @@ display flex makes them follow the same path */
     justify-content: space-evenly; */
 }
 
+.showlogin{
+  color: whitesmoke;
+  position: fixed;
+    width: 36px;
+    height: 30px;
+    left: 36px;
+    top: 36px;
+    font-size: 130%;
+}
+
+.showlogin:hover{
+  cursor: pointer;
+}
+
 .menutitle{
-  font-size: 24px;
+  font-size: 40px;
   margin-bottom: 35px;
   margin-top: none;
+  margin-left: 50%;
+  color: white;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #e9d29d, 0 0 0.5em #e7d6af, 0 0 0.1em #d5c39a, 0 10px 3px #000;
+}
+
+
+/* posision absolute vai fazer com que o logout fique parado e nao se mexa 
+quando for clicado favoritos */
+.menulogout{
+  top: 90%;
+  font-size: 120%;
+  left: 60%;
+  position: absolute;
+}
+
+.menulogout{
+  color: #e9d29d;
+  cursor: pointer;
+  font-size: 24px;
 }
 
 .button{
@@ -38,9 +71,17 @@ display flex makes them follow the same path */
   line-height: 1.6;
 }
 
+.menu{
+  font-size: 120%;
+  margin-left: 70%;
+  margin-top: 10%;
+  
+}
+
 .menu:hover{
-  color: green;
+  color: #e9d29d;
   cursor: pointer;
+  font-size: 24px;
 }
 
 /* Position and sizing of burger button */

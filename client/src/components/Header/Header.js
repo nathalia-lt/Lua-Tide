@@ -62,8 +62,6 @@ function Header({ user, userFavorites, setUser, searchTitle, setSearchTitle, lat
                     
                 }
 
-
-
                 // li is list items 
                 // para colocar o x eu preciso fazer um wrapper em volta do elemento e assim.
                 //sempre que eu quero que dois elementos estejam um do lado do outro eu tenho que wrappe them.
@@ -83,6 +81,10 @@ function Header({ user, userFavorites, setUser, searchTitle, setSearchTitle, lat
                 setUser(null);
             }
         });
+    }
+
+    function handleLoginClick(){
+        history.push("./authorization")
     }
 
 
@@ -105,8 +107,10 @@ function Header({ user, userFavorites, setUser, searchTitle, setSearchTitle, lat
 
                     </ul> : null}
                     {/* will render nothing */}
-                    <div className="menu" onClick={handleLogoutClick}>Logout</div>
-                </Menu> : null}
+                    <div className="menulogout" onClick={handleLogoutClick}>Logout</div>
+                </Menu> : <div className="showlogin" onClick={handleLoginClick}> Login</div>}
+            {/* Se o usuario esta logado vai rendeer menu, caso contrario vai mostrar login */}
+
             </div>
             <div className="title">Lua Tide</div>
         </div>

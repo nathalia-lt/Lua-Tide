@@ -1,9 +1,7 @@
 * { 
     box-sizing: border-box;
-  }
-
-.formContainer input{
 }
+
 
 .login-form{
     display :flex; 
@@ -24,7 +22,18 @@ h1{
     margin-bottom: 2%;
     margin-top: 10%;
     border: 1px solid black;
+    
 }
+
+.usersignup{
+    font-size: 25px;
+    width: 100%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    border: 1px solid black;
+}
+
+
 
 .formSubmit{
     width: 100%;
@@ -73,5 +82,5 @@ body{
     display: flex;
     flex-direction :column; 
     justify-content :center;
-    margin-top: 16%;
+    margin-top: 5%;
 }

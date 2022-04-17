@@ -31,6 +31,9 @@ function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
         });
     }
 
+
+    //a funcao scroolltop/bottom, faz com que a pagina pule para outra, como se fosse 
+    //uma nova pagina mas na verdade e a mesma. Nao esquecer de importar a funcao animate scroll.
     function scrollTop(){
         ScrollAction.scrollToTop();
         // window.scrollTo(0,1000)
@@ -122,18 +125,18 @@ function scrollBottom(){
                     <hr className="formHr" />
 
                     <form className='login-form' onSubmit={handleSignUpSubmit}>
-                        <input
+                        <input 
                             type="text"
-                            className="firstLastNames"
+                            className="usersignup"
                             name="firstName"
                             placeholder="First Name"
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
                         />
 
-                        <input
+                        <input 
                             type="text"
-                            className="firstLastNames"
+                            className="usersignup"
                             name="lastName"
                             placeholder="Last Name"
                             value={lastName}
@@ -142,6 +145,7 @@ function scrollBottom(){
 
                         <input
                             type="text"
+                            className="usersignup"
                             name="email"
                             placeholder="Email"
                             value={email}
@@ -150,6 +154,7 @@ function scrollBottom(){
 
                         <input
                             type="text"
+                            className="usersignup"
                             name="username"
                             placeholder="Username"
                             value={signUpUserName}
@@ -158,6 +163,7 @@ function scrollBottom(){
 
                         <input
                             type="password"
+                            className="usersignup"
                             name="password"
                             placeholder="Password"
                             value={signUpPassword}
@@ -166,6 +172,7 @@ function scrollBottom(){
 
                         <input
                             type="password"
+                            className="usersignup"
                             name="password confirmation"
                             placeholder="Confirm Password"
                             value={passwordConfirmation}

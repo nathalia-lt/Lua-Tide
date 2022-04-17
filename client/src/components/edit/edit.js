@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import './edit.css'
+import './edit.css';
+
 
 function Edit( {user, setUser} ) {
 
@@ -39,29 +40,27 @@ function Edit( {user, setUser} ) {
         <div class="formContainer">
             <section class="form">
                 <div class="center">
-                    <h1 class="formh1">Edit your profile</h1>
+                    <h1>Edit your profile</h1>
                     <hr class="formHr" />
 
-                    <form className="login-form" onSubmit={handleSubmit}>
-                        <input
+                    <form className="loginform" onSubmit={handleSubmit}>
+                        <input className="useredit"
                             type="text"
-                            class="firstLastNames"
                             name="firstName"
                             placeholder="First Name"
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
                         />
 
-                        <input
+                        <input className="useredit"
                             type="text"
-                            class="firstLastNames"
                             name="lastName"
                             placeholder="Last Name"
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
                         />
 
-                        <input
+                        <input className="useredit"
                             type="text"
                             name="email"
                             placeholder="Email"
@@ -69,7 +68,7 @@ function Edit( {user, setUser} ) {
                             onChange={(e) => setEmail(e.target.value)}
                         />
 
-                        <input
+                        <input className="useredit"
                             type="text"
                             name="username"
                             placeholder="Username"
