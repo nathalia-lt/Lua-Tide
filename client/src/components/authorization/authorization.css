@@ -62,7 +62,7 @@ h1{
 /* Para forcar a pagina a nao rolar para baixo */
 
 body{
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .signscroll{
