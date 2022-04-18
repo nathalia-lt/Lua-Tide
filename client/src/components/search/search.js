@@ -164,8 +164,8 @@ function Search({ searchUrl, user, setUser, latitude, longitude, userFavorites, 
             </form>
             {/* need to make a div for h2 because I want it to appear in the same line of the favorite button */}
             <div className="titlewrapper" >
-                <h2> Results for {capitalize(searchTitle)} </h2>
-                {liked ? <img className="heart" src={redheart} alt='liked' /> : <img onClick={handleLikeClick} className="heart" src={heart} alt='like' />}
+                <h2> Results {typeof resultData==='undefined' || searchTitle===''?null:'for ' + capitalize(searchTitle)} </h2>
+                {typeof resultData==='undefined'|| searchTitle===''?null:liked ? <img className="heart" src={redheart} alt='liked' /> : <img onClick={handleLikeClick} className="heart" src={heart} alt='like' />}
             </div>
             <div className="tablewrapper" >
                 <table className="table" >

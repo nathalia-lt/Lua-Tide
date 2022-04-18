@@ -29,6 +29,8 @@ h2{
     font-size: 125%;
     border: 1px solid black;
     border-collapse: collapse;
+    overflow-y: scroll;
+    background-color: white;
 }
 
 
@@ -38,6 +40,8 @@ h2{
     flex-direction :row;
     justify-content :center;
     margin-top: 2%;
+    overflow-y: scroll;
+    height: 50%;
 }
 
 td{
@@ -56,7 +60,7 @@ th {
     display: flex;
     flex-direction :column;
     margin-top: 8%;
-    margin-left: 13%;
+    margin-left: 73%;
     align-items: center;
 }
 

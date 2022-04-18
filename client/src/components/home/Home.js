@@ -24,7 +24,7 @@ function Home({ latitude, longitude, search, setResultData, searchTitle, setSear
     function handleSubmit(e) {
         e.preventDefault();
         makeCoordinates()
-        fetch(`https://tides.p.rapidapi.com/tides?longitude=${longitude}&latitude=${latitude}&radius=800&interval=60&duration=${numbersOfDays}`, options)
+        fetch(`https://tides.p.rapidapi.com/tides?longitude=${-17.39}&latitude=${48.56}&radius=800&interval=60`, options)
             .then(response => response.json())
             .then(response => {
                 setResultData(response.extremes)

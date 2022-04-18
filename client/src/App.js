@@ -19,7 +19,6 @@ function App() {
     //allows to update values
     const [latitude, setLatitude] = useState('44.778')
     const [longitude, setLongitude] = useState('66.3096')
-    const [location, setLocation] = useState('Bay of Fundy')
     const [resultData, setResultData] = useState([])
     const [numbersOfDays, setNumbersOfDays] = useState('1440')
 
