@@ -162,7 +162,40 @@ display block just put it right in the middle */
     display: flex;
     flex-direction: column;
 }
-/* 
-.rectangle-creatures{
-    margin-top: 50%;
-} */
+
+.moonphases{
+    width: 80vw;
+    height: 130vh;
+    background-color: rgb(164, 160, 160); 
+    display: center;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 10%;
+}
+
+.phases{
+    margin-bottom: 1%;
+    margin-top: 3%;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.moonphaseslist{
+    margin-bottom: 10%;
+    list-style: none;
+    text-align: left;
+    padding-right: 5%;
+}
+
+
+
+.moonphasesimage{
+    width: 100%;
+    height: 37.5vh;
+    align-self: center;
+}
+.rectangle-moon{
+    font-size:5.25vh;
+    margin-top: 3%;
+    font-weight: bolder;
+}

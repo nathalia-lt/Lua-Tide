@@ -10,6 +10,7 @@ import { animateScroll as ScrollAction } from 'react-scroll';
 import moonphases from "./moonphases.jpeg";
 import fishhunter from './fishhunter.jpeg'
 import tidecreatures from './tidecreatures.jpeg'
+import tide from './tide.jpeg'
 
 function Home({ latitude, longitude, search, setResultData, searchTitle, setSearchTitle, searchUrl, setLatitude, setLongitude, shortenDecimals, setSearchResults, setNumbersOfDays, resultData, setSearch, makeCoordinates, numbersOfDays, options }) {
     // history deixa voce navegar com clicks, deixa voce contolar o futuro
@@ -68,7 +69,7 @@ function Home({ latitude, longitude, search, setResultData, searchTitle, setSear
                             <div> </div>
                         </div>
                         <div className="rectangle">
-                            <img className="minimoon" src={moonphases} alt="phases" />
+                            <img className="minimoon" src={tide} alt="Tide" />
                             <div className='rectangle-title'>Moon phases</div>
                             <div></div>
                         </div>
@@ -83,12 +84,18 @@ function Home({ latitude, longitude, search, setResultData, searchTitle, setSear
                                 <li className="creatures"> <b>Mussels and Barnacles:</b> shutting their shells tight</li> 
                                 </ul>
                         </div>
-                       
-
-                       
-
+                        
                     </div>
-
+                    <div className="moonphases">
+                        <img className="moonphasesimage" src={moonphases} alt="moonphases" />
+                            <div className='rectangle-moon'>Moon Phases</div>
+                            <ul className= "moonphaseslist">
+                                <li className="phases" > <b>New Moon:</b> When the Earth, Moon and Sun align, the gravitational attraction exerted by the two stars on the oceans adds up, generating sea currents that cause a maximum rise in sea level.</li>
+                                <li className="phases"> <b>Waning Moon:</b> In this lunar phase, there is a decrease in the influence of the Sun and Moon on the tides. On the night when half the Moon is visible, the attraction reaches its lowest value.</li>   
+                                <li className="phases"> <b>Full Moon:</b> About two weeks after the Nova phase, the Moon assumes a position where it lines up with the Sun and Earth. This combination brings a new wave of high tides.</li>  
+                                <li className="phases"> <b> Crescent Moon:</b> In this phase the Moon and the Sun form a right angle. Thus, lunar gravitation opposes solar. Even so, the level differences between high and low tides are much smaller.</li>         
+                                </ul>
+                        </div>
                 </div>
             </div>
         </React.Fragment>
