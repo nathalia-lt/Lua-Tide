@@ -199,3 +199,15 @@ display block just put it right in the middle */
     margin-top: 3%;
     font-weight: bolder;
 }
+
+.moonpic{
+    height: 12.5vh;
+    /* padding-right: 40%; */
+}
+
+.moonimgwrapper{
+    display :flex; 
+    flex-direction :row; 
+    justify-content :flex-end;
+    margin-right: 5%;
+}
