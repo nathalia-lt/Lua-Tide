@@ -31,7 +31,7 @@ display flex makes them follow the same path */
   margin-top: none;
   margin-left: 50%;
   color: white;
-  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #e9d29d, 0 0 0.5em #e7d6af, 0 0 0.1em #d5c39a, 0 10px 3px #000;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #796d53, 0 0 0.5em #756a4f, 0 0 0.1em #d5c39a;
 }
 
 
@@ -45,7 +45,9 @@ quando for clicado favoritos */
 }
 
 .menulogout{
-  color: #e9d29d;
+  color: white;
+     -webkit-text-stroke-width: .2px; /* largura da borda */
+     -webkit-text-stroke-color: rgb(39, 38, 38); /*cor da borda */
   cursor: pointer;
   font-size: 24px;
 }
@@ -64,6 +66,11 @@ quando for clicado favoritos */
   flex-direction: row;
 }
 
+.favoriteItemWrapper:hover{
+  cursor: pointer;
+  color: lightblue;
+}
+
 .menuholder ul{
   list-style: none;
   padding: 0;
@@ -79,7 +86,6 @@ quando for clicado favoritos */
 }
 
 .menu:hover{
-  color: #e9d29d;
   cursor: pointer;
   font-size: 24px;
 }
@@ -125,19 +131,23 @@ quando for clicado favoritos */
   
   /* General sidebar styles */
   .bm-menu {
-    background: #373a47;
+    background: transparent;
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
   }
   
   /* Morph shape necessary with bubble or elastic */
   .bm-morph-shape {
-    fill: #373a47;
+    fill: transparent;
   }
   
   /* Wrapper for item list */
   .bm-item-list {
-    color: #b8b7ad;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    color: white;
+     -webkit-text-stroke-width: .2px; /* largura da borda */
+     -webkit-text-stroke-color: rgb(39, 38, 38); /*cor da borda */
     padding: 0.9em;
   }
   
