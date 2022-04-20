@@ -77,7 +77,20 @@ function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
     }
 
     return (
+
         <div className="authorization">
+
+<div >
+  <div className='light x1'></div>
+  <div className='light x2'></div>
+  <div className='light x3'></div>
+  <div className='light x4'></div>
+  <div className='light x5'></div>
+  <div className='light x6'></div>
+  <div className='light x7'></div>
+  <div className='light x8'></div>
+  <div className='light x9'></div>
+</div>
         <div className="formContainer">
             <section className="loginformauth">
                 <div className="login-center">
@@ -194,6 +207,8 @@ function Authorization( {user, setUser, onLogin, logout, setUserFavorites} ) {
                 </div>
             </section>
         </div>
+
+
         </div>
     )
 

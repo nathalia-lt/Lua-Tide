@@ -1,0 +1,28 @@
+* { 
+    box-sizing: border-box;
+}
+
+
+
+.iconswrapper{
+    padding-top: 3%;
+    border-top: 5px solid black;
+    /* margin-bottom: 1%; */
+    background-color: grey;
+}
+
+.iconswrapper:hover img{
+    cursor: pointer;
+}
+
+.bottomtext{
+    padding-top: 1%;
+    padding-bottom: 2%;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: grey;
+}
+
+body {
+    background-color: whitesmoke;
+}
