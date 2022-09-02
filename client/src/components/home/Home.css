@@ -64,7 +64,7 @@ display block just put it right in the middle */
     width: 50%;
     transform: scale(0.70); 
     z-index: -1;
-    animation: grow 25s;
+    animation: grow 15s;
     border-radius: 100%;
 }
 /* transform  in apollomoon scale has to match the transform scale in @keyframes */

@@ -20,7 +20,7 @@ function App() {
     const [latitude, setLatitude] = useState('44.778')
     const [longitude, setLongitude] = useState('66.3096')
     const [resultData, setResultData] = useState([])
-    const [numbersOfDays, setNumbersOfDays] = useState('1440')
+    const [numbersOfDays, setNumbersOfDays] = useState('1440 ')
 
     const [search, setSearch] = useState('')
     //para fazer o calendario aparecer, depois colocar no input no retorno, nao esquecer de colocar o tipo de retorno
